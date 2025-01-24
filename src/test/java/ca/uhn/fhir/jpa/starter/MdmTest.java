@@ -2,7 +2,6 @@ package ca.uhn.fhir.jpa.starter;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-import ca.uhn.fhir.jpa.model.config.SubscriptionSettings;
 import org.hl7.fhir.dstu2.model.Subscription.SubscriptionChannelType;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,12 +21,9 @@ class MdmTest {
 	@Autowired
 	JpaStorageSettings jpaStorageSettings;
 
-	@Autowired
-	SubscriptionSettings subscriptionSettings;
-
 	@Test
 	void testApplicationStartedSuccessfully() {
 		assertThat(nicknameService).isNotNull();
-		assertThat(subscriptionSettings.getSupportedSubscriptionTypes()).contains(SubscriptionChannelType.MESSAGE);
+		assertThat(jpaStorageSettings.getSupportedSubscriptionTypes()).contains(SubscriptionChannelType.MESSAGE);
 	}
 }

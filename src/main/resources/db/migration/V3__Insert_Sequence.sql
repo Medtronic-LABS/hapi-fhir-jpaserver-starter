@@ -1,0 +1,11 @@
+SELECT setval('seq_resource_id', (SELECT MAX(RES_ID) FROM HFJ_RESOURCE));
+SELECT setval('SEQ_RESOURCE_HISTORY_ID', (SELECT MAX(PID) FROM HFJ_RES_VER));
+SELECT setval('SEQ_RESTAG_ID', (SELECT MAX(PID) FROM hfj_res_tag hrt ));
+SELECT setval('SEQ_SPIDX_COORDS', (SELECT MAX(SP_ID) FROM hfj_spidx_coords hsc));
+SELECT setval('SEQ_SPIDX_DATE', (SELECT MAX(SP_ID) FROM hfj_spidx_date hsd));
+SELECT setval('SEQ_SPIDX_NUMBER', (SELECT MAX(SP_ID) FROM hfj_spidx_number hsn));
+SELECT setval('SEQ_SPIDX_QUANTITY', (SELECT MAX(SP_ID) FROM hfj_spidx_quantity hsq ));
+SELECT setval('SEQ_SPIDX_STRING', (SELECT MAX(SP_ID) FROM hfj_spidx_string hss ));
+SELECT setval('SEQ_SPIDX_TOKEN', (SELECT MAX(SP_ID) FROM hfj_spidx_token hss ));
+SELECT setval('SEQ_SPIDX_URI', (SELECT MAX(SP_ID) FROM hfj_spidx_uri hss ));
+SELECT setval('SEQ_RESLINK_ID', (SELECT MAX(PID) FROM hfj_res_link hrl ));
