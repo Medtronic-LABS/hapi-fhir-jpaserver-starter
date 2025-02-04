@@ -1,20 +1,14 @@
 version: "3"
 services:
-  hapi-fhir-jpaserver-start:
-    build: .
-    container_name: hapi-fhir-jpaserver-start
-    restart: on-failure
+  fhirserver:
+    image: fhir-server
+    build:
+      dockerfile: ./Dockerfile
     ports:
-      - "8080:8080"
-  hapi-fhir-postgres:
-    image: postgres:13-alpine
-    container_name: hapi-fhir-postgres
+      - 8080:8080
     restart: always
     environment:
-      POSTGRES_DB: "hapi"
-      POSTGRES_USER: "admin"
-      POSTGRES_PASSWORD: "admin"
-    volumes:
-      - hapi-fhir-postgres:/var/lib/postgresql/data
-volumes:
-  hapi-fhir-postgres:
+      - FHIR_DATASOURCE_URL=${FHIR_DATASOURCE_URL}
+      - FHIR_DATASOURCE_USERNAME=${FHIR_DATASOURCE_USERNAME}
+      - FHIR_DATASOURCE_PASSWORD=${FHIR_DATASOURCE_PASSWORD}
+      - APP_VALIDATE_TOKEN_API=${APP_VALIDATE_TOKEN_API}
