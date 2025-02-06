@@ -63,7 +63,7 @@ Build a clean-install using maven
 `/hapi-fhir-jpaserver-starter`
 
 ```sh
-mvn clean install
+mvn clean install -DskipTests
 ```
 
 Build docker images by the following command
